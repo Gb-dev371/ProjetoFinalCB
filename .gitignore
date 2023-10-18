@@ -1,0 +1,10 @@
+# Arquivos gerados pelo Python
+*.pyc
+__pycache__/
+
+# Arquivos de ambiente virtual
+venv/
+env/
+
+# Arquivos de dependência
+.venv
