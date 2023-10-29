@@ -8,3 +8,6 @@ env/
 
 # Arquivos de dependência
 .venv
+
+# Outros arquivos
+.python-version

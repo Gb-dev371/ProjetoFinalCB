@@ -1,0 +1,2 @@
+Streamlit comands:
+- streamlit run src/finance_up.py
