@@ -11,3 +11,5 @@ env/
 
 # Outros arquivos
 .python-version
+
+.devcontainer
