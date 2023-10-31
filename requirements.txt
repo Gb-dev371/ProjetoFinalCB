@@ -1,0 +1,6 @@
+streamlit
+pandas
+matplotlib
+binance
+sqlite3
+openpyxl

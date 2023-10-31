@@ -73,13 +73,6 @@ def main():
         nome_investimento = st.text_input(f"Informe o nome do investimento {i+1}:")
         valor_investimento = st.number_input(f"Informe o valor do investimento {i+1}:", min_value=0.0)
         investimentos.append((nome_investimento, valor_investimento))
-        
-
-    # Exibindo a tabela com as informações
-    st.subheader("Informações do Usuário")
-    button_data = st.button("Gerar tabela")
-    if button_data:
-        create_tabela(renda_total, gastos_essenciais, gastos_nao_essenciais, investimentos)
 
 
     # Gerando um gráfico com as informações
