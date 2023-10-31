@@ -1,6 +1,6 @@
 streamlit
 pandas
 matplotlib
-binance
+python-binance
 sqlite3
 openpyxl
