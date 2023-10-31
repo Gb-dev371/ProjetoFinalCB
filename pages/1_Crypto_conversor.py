@@ -19,7 +19,7 @@ def main():
     st.title("Calculadora de Criptomoedas")
 
     crypto = st.selectbox("Selecione a Criptomoeda", ("BTC", "ETH", "LTC"))
-    currency = st.radio("Selecione a Moeda", ("BRL", "USD"))
+    currency = st.radio("Selecione a Moeda", ("BRL", "USDT"))
     amount = st.number_input("Digite a Quantidade em Moeda Normal")
 
     if st.button("Calcular"):
