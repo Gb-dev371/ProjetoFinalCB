@@ -1,28 +1,36 @@
 import streamlit as st
+from binance.client import Client
 
-st.set_page_config(
-    page_title="Crypto conversor",
-    page_icon="👋",
-)
+def get_crypto_price(crypto, currency):
+    api_key = "sua_chave_de_api"
+    api_secret = "sua_chave_secreta"
+    client = Client(api_key, api_secret)
 
-st.write("# Welcome to Streamlit! 👋")
+    symbol = f"{crypto}{currency}"
+    ticker = client.get_ticker(symbol=symbol)
 
-st.sidebar.success("Select a demo above.")
+    if "lastPrice" in ticker:
+        price = float(ticker["lastPrice"])
+        return price
+    else:
+        return None
 
-st.markdown(
-    """
-    Streamlit is an open-source app framework built specifically for
-    Machine Learning and Data Science projects.
-    **👈 Select a demo from the sidebar** to see some examples
-    of what Streamlit can do!
-    ### Want to learn more?
-    - Check out [streamlit.io](https://streamlit.io)
-    - Jump into our [documentation](https://docs.streamlit.io)
-    - Ask a question in our [community
-        forums](https://discuss.streamlit.io)
-    ### See more complex demos
-    - Use a neural net to [analyze the Udacity Self-driving Car Image
-        Dataset](https://github.com/streamlit/demo-self-driving)
-    - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
-"""
-)
+def main():
+    st.title("Calculadora de Criptomoedas")
+
+    crypto = st.selectbox("Selecione a Criptomoeda", ("BTC", "ETH", "LTC"))
+    currency = st.radio("Selecione a Moeda", ("BRL", "USD"))
+    amount = st.number_input("Digite a Quantidade em Moeda Normal")
+
+    if st.button("Calcular"):
+        price = get_crypto_price(crypto, currency)
+
+        if price is not None:
+            total_crypto = amount / price
+
+            st.write(f"O equivalente de {amount} {currency} em {crypto} é: {total_crypto} {crypto}")
+        else:
+            st.write("Erro ao obter a cotação da criptomoeda. Por favor, tente novamente mais tarde.")
+
+if __name__ == "__main__":
+    main()
